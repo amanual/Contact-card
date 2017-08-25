@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Contact Card</title>
+    <title>Users</title>
+
+    <link rel="stylesheet" href="contactCard.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+      $(document).on("click", ".btn",function(){
+        var firstN = $("#input1").val();
+        var lastN = $("#input2").val();
+        //var clickDis = $("#textarea").text('<p id="clickMe">Click for description</p>');
+        var text_area = $("#textarea").val();
+        var style1 = {
+          //background-color: "white",
+          border: "1px solid #3E76A6",
+        }
+        console.log(text_area);
+        $("firstN").css({
+          "font-size": "18px"
+        });
+          $("lastN").css("font-size", "18px");
+
+        var card_content = `<div class="card_container"><h2>${firstN} ${lastN}</h2> <p id="clickMe">Click for description!</p> </div>`
+        $("#card_container").css(style1);
+        $(".cards").append(card_content);
+        $("#clickMe").click(function(){
+        // $("text_area").slideDown();
+          $(this).append('<div id="hideMe">' + text_area + '</div>');
+
+        $("#hideMe").hide();
+        })
+
+      });
+
+
+    });
+
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div class="inputInfo">
+        <label>First name: </label><input type="text" id="input1" name="first_name" placeholder="First name"><br><br>
+        <label>Last name: </label><input  type="text" id="input2" name="last_name"placeholder="Last name"><br>
+        <p>Description:</p>
+        <textarea id="textarea" placeholder="Enter description"></textarea><br>
+        <input class="btn" type="submit" value="Add User">
+      </div>
+
+
+
+      <div class="cards">
+        <div>
+        <p>Codingdojo's fearless leaders. Master of instructors:</p>
+        </div>
+
+      </div>
+    </div>
+
+
+
+  </body>
+</html>
